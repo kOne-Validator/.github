@@ -11,9 +11,9 @@ Our team specializes in node management, network optimization, and security audi
 --
 # Porfolio
 
-| 0G Labs  | Babylon | Avail  | Side | Quai | Celestia | Sui |
-| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| ⏺[Working](https://github.com/kOne-Validator#0g-labs)   | ⏺[Working](https://github.com/kOne-Validator#babylon)   | ⏺[Working](https://github.com/kOne-Validator#avail)   | ⏺[Working](https://github.com/kOne-Validator#side)  | ⏸Pause  | ⏸Pause  | ⏸Pause  |
+| Analog | Gaia | 0G Labs  | Babylon | Avail  | Side | Quai | Celestia | Sui |
+| ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
+| 🔄Building | 🔄Building | ⏺[Working](https://github.com/kOne-Validator#0g-labs)   | ⏺[Working](https://github.com/kOne-Validator#babylon)   | ⏺[Working](https://github.com/kOne-Validator#avail)   | ⏺[Working](https://github.com/kOne-Validator#side)  | ⏸Pause  | ⏸Pause  | ⏸Pause  |
 | Testnet  | Testnet  | Testnet  | Testnet  | Testnet  | Mainnet  | Mainnet  |
 
 
