@@ -13,7 +13,7 @@ Our team specializes in node management, network optimization, and security audi
 
 | Analog | Gaia | 0G Labs  | Babylon | Avail  | Side | Quai | Celestia | Sui |
 | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- | ------------- |
-| 🔄Building | 🔄Building | ⏺[Working](https://github.com/kOne-Validator#0g-labs)   | ⏺[Working](https://github.com/kOne-Validator#babylon)   | ⏺[Working](https://github.com/kOne-Validator#avail)   | ⏺[Working](https://github.com/kOne-Validator#side)  | ⏸Pause  | ⏸Pause  | ⏸Pause  |
+| 🔄Building | ⏺[Working](https://github.com/kOne-Validator#gaia) | ⏺[Working](https://github.com/kOne-Validator#0g-labs)   | ⏺[Working](https://github.com/kOne-Validator#babylon)   | ⏺[Working](https://github.com/kOne-Validator#avail)   | ⏺[Working](https://github.com/kOne-Validator#side)  | ⏸Pause  | ⏸Pause  | ⏸Pause  |
 | Testnet  | Testnet  | Testnet  | Testnet  | Testnet  | Mainnet  | Mainnet  |
 
 
@@ -193,4 +193,119 @@ cargo audit
 
 ```
 Unfortunately, this data cannot be provided at this time
+```
+
+**Gaia**
+--
+```
+Step 1: Update your system
+Before installing Docker, it's essential to ensure that your system’s packages are up to date. Run the following commands:
+
+sudo apt update
+sudo apt upgrade
+Step 2: Install Docker
+Install the required packages:
+
+sudo apt install apt-transport-https ca-certificates curl software-properties-common
+Add Docker’s GPG key:
+
+curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /usr/share/keyrings/docker-archive-keyring.gpg
+Add Docker’s repository to APT sources:
+
+echo "deb [arch=amd64 signed-by=/usr/share/keyrings/docker-archive-keyring.gpg] https://download.docker.com/linux/ubuntu focal stable" | sudo tee /etc/apt/sources.list.d/docker.list > /dev/null
+Update your package index and install Docker:
+
+sudo apt update
+sudo apt install docker-ce docker-ce-cli containerd.io
+Verify Docker is installed correctly:
+
+sudo systemctl status docker
+Step 3: Install Docker Compose
+Download Docker Compose:
+
+sudo curl -L "https://github.com/docker/compose/releases/download/1.29.2/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
+Apply executable permissions:
+
+sudo chmod +x /usr/local/bin/docker-compose
+Verify Docker Compose installation:
+
+docker-compose --version
+Gaia Node Installation
+Once Docker and Docker Compose are installed, follow these steps to install Gaia Node.
+
+Step 1: Clone the Gaia Node Repository
+You need to clone the Gaia Node GitHub repository to your local machine:
+
+git clone https://github.com/gaia-network/gaia-node.git
+cd gaia-node
+Step 2: Configure Environment Variables
+Inside the Gaia Node directory, you'll find a .env.example file. Copy this file and rename it to .env:
+
+cp .env.example .env
+Open the .env file and configure the variables based on your setup. Key variables you might need to modify include:
+
+GAIA_NODE_NAME: Set a unique name for your node.
+GAIA_NETWORK: Define the network type (e.g., mainnet, testnet).
+Step 3: Start the Gaia Node
+After configuring the environment, use Docker Compose to build and run your Gaia Node:
+
+docker-compose up -d
+This command starts the Gaia Node in detached mode. To view logs and ensure that the node is running correctly, use:
+
+docker-compose logs -f
+You can stop the node at any time by running:
+
+docker-compose down
+Gaia Node Uninstallation
+If you need to remove the Gaia Node from your system, follow these steps:
+
+Step 1: Stop the Gaia Node
+Ensure the node is stopped before proceeding with the uninstallation. Run the following command to stop the containers:
+
+docker-compose down
+Step 2: Remove Docker Containers and Images
+You’ll need to remove all containers and images associated with the Gaia Node. First, list all Docker containers:
+
+docker ps -a
+Identify the containers associated with the Gaia Node, then remove them:
+
+docker rm <container_id>
+You can also stop and remove all containers at once with:
+
+docker stop $(docker ps -a -q)
+docker rm $(docker ps -a -q)
+To remove Docker images:
+
+docker rmi <image_id>
+Alternatively, to remove all Docker images:
+
+docker rmi $(docker images -q)
+Step 3: Remove Gaia Node Files
+If you cloned the Gaia Node repository to your local machine, you can delete the directory to remove all files related to the Gaia Node:
+
+rm -rf gaia-node
+Step 4: Uninstall Docker and Docker Compose (Optional)
+If you no longer need Docker and Docker Compose on your system, you can remove them as follows:
+
+To remove Docker:
+
+sudo apt remove docker-ce docker-ce-cli containerd.io
+To remove Docker Compose:
+
+sudo rm /usr/local/bin/docker-compose
+Verification of Gaia Node Status
+After starting or stopping your Gaia Node, you can verify its status using Docker commands. To check if the node is running:
+
+docker-compose ps
+You can also check logs for any issues or errors:
+
+docker-compose logs -f
+Troubleshooting
+Common Issues:
+Docker Daemon Not Running: If you encounter an error related to the Docker daemon, ensure Docker is running:
+
+sudo systemctl start docker
+Environment Variable Misconfigurations: Double-check your .env file for any misconfigured variables. Missing or incorrect values can cause the node to fail.
+
+Network Issues: Ensure you have a stable internet connection, as the node requires network access to sync with the Gaia blockchain.
 ```
